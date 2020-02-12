@@ -49,7 +49,7 @@ extension PanModalPresentable where Self: UIViewController {
         guard !UIAccessibility.isVoiceOverRunning
             else { return longFormYPos }
 
-        let shortFormYPos = topMargin(from: shortFormHeight) + topOffset
+        let shortFormYPos = topMargin(from: shortFormHeight) + topOffset - bottomLayoutOffset
 
         // shortForm shouldn't exceed longForm
         return max(shortFormYPos, longFormYPos)
@@ -96,7 +96,7 @@ extension PanModalPresentable where Self: UIViewController {
             let targetSize = CGSize(width: (presentedVC?.containerView?.bounds ?? UIScreen.main.bounds).width,
                                     height: UIView.layoutFittingCompressedSize.height)
             let intrinsicHeight = view.systemLayoutSizeFitting(targetSize).height
-            return bottomYPos - (intrinsicHeight + bottomLayoutOffset)
+            return bottomYPos - (intrinsicHeight + bottomLayoutOffset) - bottomLayoutOffset
         }
     }
 
