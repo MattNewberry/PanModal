@@ -299,7 +299,7 @@ public extension PanModalPresentationController {
      */
     func setNeedsLayoutUpdate() {
         configureViewLayout()
-        adjust(toYPosition: shortFormYPosition)
+        snap(toYPosition: shortFormYPosition)
         observe(scrollView: presentable?.panScrollable)
         configureScrollViewInsets()
     }
